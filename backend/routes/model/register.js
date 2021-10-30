@@ -11,7 +11,7 @@ const passmodel = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true
+        required: true,
     },
     resetToken: String,
     expireToken: Date,

@@ -4,17 +4,17 @@ import shortId from "shortid";
 const url = new mongoose.Schema({
     LongUrl: {
         type: String,
-        required: true
+        required: true,
     },
     ShortUrl: {
         type: String,
         required: true,
-        default: shortId.generate
+        default: shortId.generate,
     },
     ClickCount: {
         type: Number,
         required: true,
-        default: 0
+        default: 0,
     }
 });
 

@@ -9,7 +9,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const LocalUrl = "https://urls-shorteners.herokuapp.com/"
+const LocalUrl = "http://localhost:5000/";
+const url = "https://urls-shorteners.herokuapp.com/";
 
 
 // To Handle Signin Operation
@@ -24,7 +25,7 @@ export const Signin = () =>
         {
             const { email, password } = data;
             // console.log(email, password)
-            await axios.post(`${LocalUrl}signin`, { email, password })
+            await axios.post(`${url}signin`, { email, password })
                 .then((res) =>
                 {
                     toast(res.data.message);
@@ -81,7 +82,7 @@ export const Signup = () =>
     {
         try
         {
-            await axios.post(`${LocalUrl}signup`, data)
+            await axios.post(`${url}signup`, data)
                 .then(res =>
                 {
                     toast(res.data.message);
@@ -138,7 +139,7 @@ export const ForgetPassword = () =>
         {
             const { email } = data;
             console.log(email);
-            await axios.post(`${LocalUrl}resetpassword`, { email })
+            await axios.post(`${url}resetpassword`, { email })
                 .then((res) => toast(res.data.message))
                 .catch((error) => toast(error.response.data.message));
             // history.push("/")
@@ -184,7 +185,7 @@ export const ResetPassword = () =>
         {
             const { newPassword } = data;
             console.log(token)
-            await axios.post(`${LocalUrl}newpassword`, { newPassword, token })
+            await axios.post(`${url}newpassword`, { newPassword, token })
                 .then((res) => toast(res.data.message))
                 .catch((error) => toast(error.response.data.message));
             // history.push("/")

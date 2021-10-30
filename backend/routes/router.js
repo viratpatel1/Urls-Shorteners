@@ -17,17 +17,21 @@ const transporter = nodemailer.createTransport(sendgridTransport({
     }
 }));
 
-router.get("/n", (req, res) =>
-{
-    res.send("Node Started");
-});
-
 router.get("/", async (req, res) =>
 {
+    // res.send("ABCDSFEJOR")
     await UrlModel.find()
         .then((re) => res.send(re))
         .catch((err) => res.send(err))
 });
+
+
+router.get("/url", (req, res) =>
+{
+    res.send("Node Starteds");
+});
+
+
 
 
 router.post("/signin", async (req, res) =>
@@ -60,7 +64,7 @@ router.post("/signin", async (req, res) =>
     } catch (error)
     {
         // return 
-        return res.status(400).json({ message: "Something went Wrong" })
+        res.status(400).json({ message: "Something went Wrong" })
     }
 
 

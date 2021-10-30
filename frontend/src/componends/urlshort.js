@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import axios from "axios";
 
 const LocalUrl = "http://localhost:5000/";
+const url = "https://urls-shorteners.herokuapp.com/";
 
 export const Urlshort = () =>
 {
@@ -18,7 +19,7 @@ export const Urlshort = () =>
         {
             const { text } = data;
             console.log(text)
-            await axios.post(`${LocalUrl}shortUrl`, { text })
+            await axios.post(`${url}shortUrl`, { text })
                 .then((res) => console.log(res))
                 .catch((err) => console.log(err.message))
         } catch (error)
@@ -31,7 +32,7 @@ export const Urlshort = () =>
 
     useEffect(() =>
     {
-        fetch(`${LocalUrl}`)
+        fetch(`${url}`)
             .then((res) => res.json())
             .then((res) => setLong(res));
     }, [onSubmit])
